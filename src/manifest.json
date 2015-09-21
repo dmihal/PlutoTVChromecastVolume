@@ -3,7 +3,9 @@
     "description": "Ability to change ChromeCast volume using Pluto.TV",
     "version": "0.1",
     "permissions": [
-        "tabs","<all_urls>"
+        "tabs",
+        "http://pluto.tv/*",
+        "https://pluto.tv/*"
     ],
 
     "content_scripts": [
@@ -11,10 +13,13 @@
         "matches": [
             "http://pluto.tv/*",
             "https://pluto.tv/*"
-            ],
-        "js": ["content.js"],
+        ],
+        "js": ["injector.js"],
         "run_at": "document_end"
         }
-    ], 
+    ],
+    "web_accessible_resources": [
+        "content.js"
+    ],
     "manifest_version":2
 }
