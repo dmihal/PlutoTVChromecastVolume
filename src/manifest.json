@@ -1,0 +1,20 @@
+{
+    "name": "Pluto.tv ChromeCast Volume",
+    "description": "Ability to change ChromeCast volume using Pluto.TV",
+    "version": "0.1",
+    "permissions": [
+        "tabs","<all_urls>"
+    ],
+
+    "content_scripts": [
+        {
+        "matches": [
+            "http://pluto.tv/*",
+            "https://pluto.tv/*"
+            ],
+        "js": ["content.js"],
+        "run_at": "document_end"
+        }
+    ], 
+    "manifest_version":2
+}
