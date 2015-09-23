@@ -26,4 +26,7 @@ var sliderListener = function(e){
   percent = Math.round(percent * 20) / 20; // Round to 0.05
   console.log("Set Volume:", percent);
   window.setVolume && setVolume(percent);
+
+  var progressBar = document.querySelector('.volume-progress .episode-progress');
+  progressBar.style.width = percent * 100 + '%';
 };
