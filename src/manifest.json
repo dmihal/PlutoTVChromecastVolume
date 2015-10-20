@@ -19,6 +19,7 @@
         }
     ],
     "web_accessible_resources": [
+        "ui.css",
         "content.js"
     ],
     "manifest_version":2
