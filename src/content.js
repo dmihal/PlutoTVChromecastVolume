@@ -9,6 +9,7 @@ require(['main'], function(){
       chromecast.map.bind('deviceState', function(e, newVal, oldVal){
         if (newVal == 1){
           volumeSlider.attach();
+          volumeSlider.setSliderPercent(chromecast.map.session.receiver.volume.level * 100);
         } else {
           volumeSlider.detach();
         }
@@ -35,7 +36,7 @@ define('volumeSlider', function(){
       div = document.createElement('div');
       div.className = "volume-slider-container";
       div.innerHTML = '<div class="volume-progress">' +
-        '<div class="seekbar"></div><div class="episode-progress" style="width: 61%;"></div></div>';
+        '<div class="seekbar"></div><div class="episode-progress" style="width: 50%;"></div></div>';
       document.querySelector('li.control.mute').appendChild(div);
       div.addEventListener('mousedown', sliderListener);
       div.addEventListener('click', sliderListener);
@@ -44,6 +45,11 @@ define('volumeSlider', function(){
       if (div) {
         div.parentElement.removeChild(div);
         div = null;
+      }
+    },
+    setSliderPercent: function(percent){
+      if (div){
+        div.querySelector('.episode-progress').style.width = percent + '%';
       }
     }
   };
