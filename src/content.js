@@ -1,11 +1,16 @@
 require(['main'], function(){
-  require(['services/chromecast'], function(chromecast_promise){
+  require(['services/chromecast', 'volumeSlider'], function(chromecast_promise, volumeSlider){
     chromecast_promise.then(function(chromecast){
       window.setVolume = function(level){
         if (chromecast.map.isReceiverAvailable){
           chromecast.map.session.setReceiverVolumeLevel(level, function(){console.log('success')}, function(){console.log('fail')});
         }
       };
+      chromecast.map.bind('deviceState', function(e, newVal, oldVal){
+        if (newVal == 1){
+          volumeSlider.attach();
+        }
+      });
     });
   });
 });
