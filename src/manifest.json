@@ -17,15 +17,19 @@
         {
         "matches": [
             "http://pluto.tv/*",
-            "https://pluto.tv/*"
+            "https://pluto.tv/*",
+            "http://www.youtube.com/embed/*",
+            "https://www.youtube.com/embed/*"
         ],
         "js": ["injector.js"],
-        "run_at": "document_end"
+        "run_at": "document_end",
+        "all_frames": true
         }
     ],
     "web_accessible_resources": [
         "ui.css",
-        "content.js"
+        "content.js",
+        "player.js"
     ],
     "manifest_version":2
 }
